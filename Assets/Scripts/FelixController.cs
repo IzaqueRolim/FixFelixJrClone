@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class FelixController : MonoBehaviour
 {
     public bool canMove,die;
     public Transform pointAtual;
+
+    public GameObject time;
+    public Text pontos;
 
     public int pontuacao, vida;
 
@@ -26,7 +31,7 @@ public class FelixController : MonoBehaviour
             Move();
             InputConsert();
         }
-        print(pontuacao);
+        
     }
 
     async void Move(){
@@ -62,20 +67,28 @@ public class FelixController : MonoBehaviour
             }
     }
     void InputConsert(){
-        if(Input.GetKeyDown(KeyCode.E)){
-            print(pointAtual.transform.childCount);
-            if(pointAtual.transform.childCount > 1){
-                anim.SetTrigger("conserta");
-                pontuacao++;
+        if(Input.GetKeyDown(KeyCode.E)){ 
+            if(pontuacao==25){
+                print("Ganhou");
+                time.SetActive(true);
             }
             else{
-                return;
+                if(pointAtual.transform.childCount > 1){
+                    anim.SetTrigger("conserta");
+                    pontuacao++;
+                    pontos.text = pontuacao.ToString();
+                }
+                else{
+                    return;
+                }
+                
             }
         }
     }
     void Consert(){
         Destroy(pointAtual.GetChild(0).gameObject);
     }
+
     public void Dano(){
         if(vida>1){
             vida--;
@@ -83,13 +96,14 @@ public class FelixController : MonoBehaviour
         else{
             anim.SetTrigger("morre");
             die = true;
-            //animacao pra morrer
+            
         }
     }
     void DiminuirColisor()
     {
         GetComponent<BoxCollider2D>().size =  new Vector2(0.2f,0.04f);
     }
+
    
     private void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.tag == "point"){

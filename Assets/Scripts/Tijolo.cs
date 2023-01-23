@@ -12,7 +12,6 @@ public class Tijolo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.tag == "felix"){
-          
             col.gameObject.GetComponent<FelixController>().Dano();
         }
     }

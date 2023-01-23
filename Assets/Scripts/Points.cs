@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using System.Threading;
 
 public class Points : MonoBehaviour
@@ -9,10 +10,10 @@ public class Points : MonoBehaviour
 
     public Transform felix;
     public Transform piso;
+    
 
     public bool canDown;
 
-    
 
     void Start()
     {
