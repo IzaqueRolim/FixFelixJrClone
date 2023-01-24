@@ -342,9 +342,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 339
-        y: 268
+        y: 276
         width: 26
-        height: 42
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -616,10 +616,10 @@ TextureImporter:
         serializedVersion: 2
         x: 323
         y: 228
-        width: 23
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 31
+        height: 47
+      alignment: 9
+      pivot: {x: 0.47408763, y: 0.35472333}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -627,48 +627,6 @@ TextureImporter:
       bones: []
       spriteID: d848d6cdb6c136e4087093a5f49faed9
       internalID: 1522569693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: conserta-removebg-preview_24
-      rect:
-        serializedVersion: 2
-        x: 333
-        y: 267
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51c79ebab0a091b47958d2c4d12d0ce9
-      internalID: 2127258140
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: conserta-removebg-preview_25
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 264
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ee4cf67e516d324089d8471306a7b89
-      internalID: 1777030592
       vertices: []
       indices: 
       edges: []
@@ -1816,7 +1774,7 @@ TextureImporter:
         width: 38
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

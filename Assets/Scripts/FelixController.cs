@@ -7,30 +7,48 @@ using UnityEngine.Playables;
 
 public class FelixController : MonoBehaviour
 {
-    public bool canMove,die;
+    public bool canMove,isCenter;
     public Transform pointAtual;
 
-    public GameObject time;
+    public GameObject time,panel;
     public Text pontos;
 
-    public int pontuacao, vida;
+    public ralph ra;
+    public int pontuacao {get;set;}
+    int vida,objetivo;
 
     Animator anim;
     SpriteRenderer sprite;
 
     void Start(){
-        die = false;
+        isCenter = false;
+
         pontuacao = 0;
         vida = 3;
+        objetivo = 26;
+
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    public int GetPoint()
+    {    
+        return pontuacao;
+    }
+
     void Update(){
+    Debug.Log(panel.transform.GetChild(0).GetComponent<Text>());
         if(canMove){
             Move();
             InputConsert();
         }
+        else{
+            // if(transform.position != pointAtual.GetChild(2).transform.position){
+            //     transform.position = Vector2.MoveTowards(transform.position,new Vector2(pointAtual.GetChild(2).transform.position.x, pointAtual.GetChild(2).transform.position.y),Time.deltaTime*2);
+            // }
+        }
+
+
         
     }
 
@@ -68,11 +86,6 @@ public class FelixController : MonoBehaviour
     }
     void InputConsert(){
         if(Input.GetKeyDown(KeyCode.E)){ 
-            if(pontuacao==25){
-                print("Ganhou");
-                time.SetActive(true);
-            }
-            else{
                 if(pointAtual.transform.childCount > 1){
                     anim.SetTrigger("conserta");
                     pontuacao++;
@@ -80,13 +93,17 @@ public class FelixController : MonoBehaviour
                 }
                 else{
                     return;
-                }
-                
-            }
+                }  
         }
     }
     void Consert(){
         Destroy(pointAtual.GetChild(0).gameObject);
+        if(pontuacao==objetivo){
+                anim.SetTrigger("win");
+                panel.SetActive(true);
+                ra.SetLost(true);
+                canMove = false; 
+        }
     }
 
     public void Dano(){
@@ -95,7 +112,10 @@ public class FelixController : MonoBehaviour
         }
         else{
             anim.SetTrigger("morre");
-            die = true;
+            canMove = false;
+            ra.SetLost(true);
+            panel.SetActive(true);
+             panel.transform.GetChild(0).GetComponent<Text>().text = "QUE PENA!nVOCÊ PERDEU";
             
         }
     }
